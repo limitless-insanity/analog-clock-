@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap');
+
+
+nav {
+    background-color: purple;
+    color: white;
+    height: 13vw;
+    font-size: 7vw;
+    display: flex;
+    align-items: center;
+    padding: 0 2vw;
+    font-family: 'Roboto Mono', monospace;
+}
+
+nav ul {
+    height: inherit;
+    /* padding-bottom: 3vw; */
+    list-style-type: none;
+}
+
+:root {
+    --second: 1s;
+    --minute: calc(var(--second) * 60);
+    --hour: calc(var(--minute) * 60);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+        /* transform-origin: top left; */
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.second.hand {
+    animation: rotate steps(60) var(--minute) infinite;
+}
+
+.minute.hand {
+    animation: rotate linear var(--hour) infinite;
+}
+
+.hour.hand {
+    animation: rotate linear calc(var(--hour) * 12) infinite;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: grey;
+    margin: 0 auto;
+    position: relative;
+}
+
+.second {
+    --width: 5px;
+    --height: 140px;
+    --color: yellow;
+}
+
+.minute {
+    --width: 10px;
+    --height: 90px;
+    --color: blue;
+}
+
+.hour {
+    --width: 10px;
+    --height: 50px;
+    --color: rgb(12, 12, 73);
+}
+
+.hand {
+    position: absolute;
+    top: 50%;
+    left: calc((50% - var(--width) / 2));
+    width: var(--width);
+    height: var(--height);
+    background-color: var(--color);
+    transform-origin: center 0;
+    border-radius: 90px;
+}
